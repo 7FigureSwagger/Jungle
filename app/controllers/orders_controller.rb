@@ -1,9 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.where('total_cents > 100000', params[:id])
-    
-  #Why cant i seem to make another query here?  
+    @order = Order.find(params[:id])
   end
 
   def create
