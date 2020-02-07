@@ -2,7 +2,6 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
-    <h1><%= @order.line_items[0].quantity %></h1>
   </header>
 
   <div class="order-summary jumbotron">
@@ -19,11 +18,11 @@
         </tr>
       </thead>
       <tbody>
-      <% if @order.line_items %>
+      <% if @order.line_items.length > 0 %>
         <% @order.line_items.each do |item| %>
           <%= render 'item', product: item[:product], quantity: item[:quantity] %>
         <% end %>
-      <%end%>
+      <%end %>
       </tbody>
       <tfoot>
         <tr>

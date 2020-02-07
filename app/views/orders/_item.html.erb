@@ -1,17 +1,19 @@
 <tr>
   <td>
-    <%# <%= image_tag product.image.tiny %> %>
+    <%= image_tag @order.line_items[0].product.image.tiny %>
   </td>
   <td>
-    <h4><%= product %></h4> 
+    <h4><%= @order.line_items[0].product.name %></h4> 
     <br>
   </td>
-  /*<td>
-    <%# $<%= product.price %> %>
+  <td>
+    $<%= @order.line_items[0].product.price %>
   </td>
   <td>
   </td>
   <td>
-    <%# $<%= product.price * quantity %> %>
+    $<%= @order.line_items[0].product.price * quantity %>
   </td>
 </tr>
+
+
