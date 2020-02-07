@@ -11,13 +11,15 @@
           <th colspan="2">Product</th>
           <th>Unit Price</th>
           <th>Quantity</th>
-          <th>Price</th>
+          <th>Price</th>  
         </tr>
       </thead>
       <tbody>
+      <% if enhanced_cart %>
         <% enhanced_cart.each do |item| %>
           <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
         <% end %>
+      <%end%>
       </tbody>
       <tfoot>
         <tr>
@@ -34,6 +36,7 @@
 
   <div class="row">
     <div class="col-xs-12">
+      <% if enhanced_cart.length > 0 %>  
       <%= form_tag orders_path do %>
         <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -46,6 +49,12 @@
           data-currency="cad">
         </script>
       <% end %>
+    <% else %>
+         <span class="alert alert-danger">
+          <strong> No items in your cart!</strong>
+        </span>
+        <a href="/">Back</a>
+    <% end %>
     </div>
   </div>
 
