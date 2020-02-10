@@ -1,9 +1,9 @@
 class AboutUsController < ApplicationController
   def index
-    @sayHello = 'Hi!'
+    @sayHello = "Hi!"
   end
-  
+
   def show
-    @sayHi = 'hello'
+    @sayHi = "hello"
   end
 end
